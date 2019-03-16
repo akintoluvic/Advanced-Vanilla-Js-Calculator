@@ -23,6 +23,7 @@ keys.addEventListener('click', e => {
             // Add custom attribute
             calculator.dataset.previousKeyType = 'operator';
             calculator.dataset.firstValue = displayedNum;
+            calculator.dataset.operator = action;
         } else if (action === 'decimal') {
             display.textContent = displayNum + '.';
         } else if (action === 'clear') {
