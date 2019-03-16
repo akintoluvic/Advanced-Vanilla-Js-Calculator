@@ -15,6 +15,7 @@ keys.addEventListener('click', e => {
             } else {
                 display.textContent = displayedNum + keyContent;
             }
+            calculator.dataset.previousKey = 'number';
         } else if (action === 'add' ||
             action === 'subtract' ||
             action === 'multiply' ||
@@ -28,14 +29,17 @@ keys.addEventListener('click', e => {
             if (!displayedNum.includes('.')) {
                 display.textContent = displayedNum + '.';
             }
+            calculator.dataset.previousKey = 'decimal';
         } else if (action === 'clear') {
             console.log('clear key');
+            calculator.dataset.previousKeyType = 'clear';
         }  else if (action === 'calculate') {
             const firstValue = calculator.dataset.firstValue;
             const operator = calculator.dataset.operator;
             const secondValue = displayedNum;
 
             display.textContent = calculate (firstValue, operator, secondValue);
+            calculator.dataset.previousKeyType = 'calculate';
         }
         // Remove .is-depressed class from all keys
         Array.from(key.parentNode.children)
