@@ -29,6 +29,8 @@ keys.addEventListener('click', e => {
         } else if (action === 'clear') {
             console.log('clear key');
         }  else if (action === 'calculate') {
+            const firstValue = calculator.dataset.firstValue;
+            const operator = calculator.dataset.operator;
             const secondValue = displayedNum;
         }
         // Remove .is-depressed class from all keys
