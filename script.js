@@ -1,10 +1,13 @@
 const calculator = document.querySelector('.calculator');
 const keys = document.querySelector('.calculator__keys');
+const display = document.querySelector('.calculator__display');
 
 keys.addEventListener('click', e => {
     if (e.target.matches("button")) {
         const key = e.target;
         const action = key.dataset.action;
+        const keyContent = key.textContent;
+        const displayNum = display.textContent;
         if (!action) {
             console.log('number key');
         } else if (action === 'add' ||
