@@ -22,6 +22,7 @@ keys.addEventListener('click', e => {
             key.classList.add('is-depressed');
             // Add custom attribute
             calculator.dataset.previousKeyType = 'operator';
+            calculator.dataset.firstValue = displayedNum;
         } else if (action === 'decimal') {
             display.textContent = displayNum + '.';
         } else if (action === 'clear') {
