@@ -19,6 +19,8 @@ keys.addEventListener('click', e => {
             action === 'multiply' ||
             action === 'divide') {
             key.classList.add('is-depressed');
+            // Add custom attribute
+            calculator.dataset.previousKeyType = 'operator';
         } else if (action === 'decimal') {
             display.textContent = displayNum + '.';
         } else if (action === 'clear') {
