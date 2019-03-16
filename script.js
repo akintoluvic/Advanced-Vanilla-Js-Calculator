@@ -25,7 +25,9 @@ keys.addEventListener('click', e => {
             calculator.dataset.firstValue = displayedNum;
             calculator.dataset.operator = action;
         } else if (action === 'decimal') {
-            display.textContent = displayedNum + '.';
+            if (!displayedNum.includes('.')) {
+                display.textContent = displayedNum + '.';
+            }
         } else if (action === 'clear') {
             console.log('clear key');
         }  else if (action === 'calculate') {
