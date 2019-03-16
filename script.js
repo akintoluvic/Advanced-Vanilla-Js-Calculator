@@ -7,13 +7,13 @@ keys.addEventListener('click', e => {
         const key = e.target;
         const action = key.dataset.action;
         const keyContent = key.textContent;
-        const displayNum = display.textContent;
+        const displayedNum = display.textContent;
         const previousKeyType = calculator.dataset.previousKeyType;
         if (!action) {
-            if (displayNum === '0' || previousKeyType === 'operator') {
+            if (displayedNum === '0' || previousKeyType === 'operator') {
                 display.textContent = keyContent;
             } else {
-                display.textContent = displayNum + keyContent;
+                display.textContent = displayedNum + keyContent;
             }
         } else if (action === 'add' ||
             action === 'subtract' ||
@@ -25,7 +25,7 @@ keys.addEventListener('click', e => {
             calculator.dataset.firstValue = displayedNum;
             calculator.dataset.operator = action;
         } else if (action === 'decimal') {
-            display.textContent = displayNum + '.';
+            display.textContent = displayedNum + '.';
         } else if (action === 'clear') {
             console.log('clear key');
         }  else if (action === 'calculate') {
