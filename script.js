@@ -18,7 +18,7 @@ keys.addEventListener('click', e => {
             action === 'subtract' ||
             action === 'multiply' ||
             action === 'divide') {
-            console.log('operator key');
+            key.classList.add('is-depressed');
         } else if (action === 'decimal') {
             display.textContent = displayNum + '.';
         } else if (action === 'clear') {
