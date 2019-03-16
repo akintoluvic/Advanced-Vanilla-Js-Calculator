@@ -9,7 +9,11 @@ keys.addEventListener('click', e => {
         const keyContent = key.textContent;
         const displayNum = display.textContent;
         if (!action) {
-            console.log('number key');
+            if (displayNum === '0') {
+                display.textContent = keyContent;
+            } else {
+                display.textContent = displayNum + keyContent;
+            }
         } else if (action === 'add' ||
             action === 'subtract' ||
             action === 'multiply' ||
