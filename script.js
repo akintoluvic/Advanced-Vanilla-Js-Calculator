@@ -10,7 +10,7 @@ keys.addEventListener('click', e => {
         const displayNum = display.textContent;
         const previousKeyType = calculator.dataset.previousKeyType;
         if (!action) {
-            if (displayNum === '0') {
+            if (displayNum === '0' || previousKeyType === 'operator') {
                 display.textContent = keyContent;
             } else {
                 display.textContent = displayNum + keyContent;
@@ -27,7 +27,7 @@ keys.addEventListener('click', e => {
         } else if (action === 'clear') {
             console.log('clear key');
         }  else if (action === 'calculate') {
-            console.log('equal key');
+            const secondValue = displayedNum;
         }
         // Remove .is-depressed class from all keys
         Array.from(key.parentNode.children)
