@@ -8,6 +8,7 @@ keys.addEventListener('click', e => {
         const action = key.dataset.action;
         const keyContent = key.textContent;
         const displayNum = display.textContent;
+        const previousKeyType = calculator.dataset.previousKeyType;
         if (!action) {
             if (displayNum === '0') {
                 display.textContent = keyContent;
