@@ -32,6 +32,8 @@ keys.addEventListener('click', e => {
             const firstValue = calculator.dataset.firstValue;
             const operator = calculator.dataset.operator;
             const secondValue = displayedNum;
+
+            display.textContent = calculate (firstValue, operator, secondValue);
         }
         // Remove .is-depressed class from all keys
         Array.from(key.parentNode.children)
@@ -39,3 +41,18 @@ keys.addEventListener('click', e => {
     }
     
 });
+
+const calculate = (n1, operator, n2) => {
+    let result = '';
+
+    if (operator === 'add') {
+        result = parseFloat(n1) + parseFloat(n2);
+    } else if (operator === 'subtract') {
+        result = parseFloat(n1) - parseFloat(n2);
+    } else if (operator === 'multiply') {
+        result = parseFloat(n1) * parseFloat(n2);
+    } else if (operator === 'divide') {
+        result = parseFloat(n1) / parseFloat(n2);
+    }
+    return result;
+}
