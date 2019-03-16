@@ -20,7 +20,7 @@ keys.addEventListener('click', e => {
             action === 'divide') {
             console.log('operator key');
         } else if (action === 'decimal') {
-            console.log('decimal key');
+            display.textContent = displayNum + '.';
         } else if (action === 'clear') {
             console.log('clear key');
         }  else if (action === 'calculate') {
