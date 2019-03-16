@@ -26,6 +26,9 @@ keys.addEventListener('click', e => {
         }  else if (action === 'calculate') {
             console.log('equal key');
         }
+        // Remove .is-depressed class from all keys
+        Array.from(key.parentNode.children)
+            .forEach(k => k.classList.remove('is-depressed'));
     }
     
 });
