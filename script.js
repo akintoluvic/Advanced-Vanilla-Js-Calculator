@@ -25,7 +25,13 @@ keys.addEventListener('click', e => {
                 const secondValue = displayedNum;
 
                 if (firstValue && operator && previousKeyType !== 'operator') {
-                    display.textContent = calculate(firstValue, operator, secondValue);
+                    const calcValue = calculate(firstValue, operator, secondValue);
+                    display.textContent = calcValue;
+
+                    calculator.dataset.firstValue = calcValue;
+                } else {
+                    // If there are no calculations, set displayedNum as the firstValue
+                    calculator.dataset.firstValue = displayedNum;
                 }
 
             key.classList.add('is-depressed');
