@@ -56,7 +56,10 @@ keys.addEventListener('click', e => {
             const operator = calculator.dataset.operator;
             const secondValue = displayedNum;
 
-            display.textContent = calculate (firstValue, operator, secondValue);
+            if (firstValue) {
+               display.textContent = calculate (firstValue, operator, secondValue); 
+            }
+            
             calculator.dataset.previousKeyType = 'calculate';
         }
         // Remove .is-depressed class from all keys
