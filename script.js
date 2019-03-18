@@ -24,10 +24,10 @@ keys.addEventListener('click', e => {
                 const operator = calculator.dataset.operator;
                 const secondValue = displayedNum;
 
-                if (firstValue && operator) {
+                if (firstValue && operator && previousKeyType !== 'operator') {
                     display.textContent = calculate(firstValue, operator, secondValue);
                 }
-                
+
             key.classList.add('is-depressed');
             // Add custom attribute
             calculator.dataset.previousKeyType = 'operator';
