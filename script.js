@@ -33,7 +33,7 @@ keys.addEventListener('click', e => {
             }
             calculator.dataset.previousKeyType = 'decimal';
         } else if (action === 'clear') {
-            console.log('clear key');
+            display.textContent = '0';
             calculator.dataset.previousKeyType = 'clear';
         }  else if (action === 'calculate') {
             const firstValue = calculator.dataset.firstValue;
