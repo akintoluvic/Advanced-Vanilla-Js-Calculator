@@ -26,7 +26,8 @@ keys.addEventListener('click', e => {
 
                 if (firstValue && 
                     operator && 
-                    previousKeyType !== 'operator'
+                    previousKeyType !== 'operator' &&
+                    previousKeyType !== 'calculate'
                     ) {
                     const calcValue = calculate(firstValue, operator, secondValue);
                     display.textContent = calcValue;
@@ -44,12 +45,26 @@ keys.addEventListener('click', e => {
         } else if (action === 'decimal') {
             if (!displayedNum.includes('.')) {
                 display.textContent = displayedNum + '.';
-            } else if (previousKeyType === 'operator') {
+            } else if (previousKeyType === 'operator' ||
+                    previousKeyType === 'calculate'
+                    ) {
                 display.textContent = '0.';
             }
             calculator.dataset.previousKeyType = 'decimal';
+        } else if (action !== 'clear') {
+            const clearButton = calculator.querySelector('[data-action=clear]');
+            clearButton.textContent = 'CE';
         } else if (action === 'clear') {
-            display.textContent = '0';
+            if (key.textContent === 'AC') {
+                calculator.dataset.firstValue = '';
+                calculator.dataset.modValue = '';
+                calculator.dataset.operator = '';
+                calculator.dataset.previousKeyType = '';
+            } else {
+                key.textContent = 'AC';
+            }
+            
+            display.textContent = 0;
             calculator.dataset.previousKeyType = 'clear';
         }  else if (action === 'calculate') {
             const firstValue = calculator.dataset.firstValue;
@@ -57,9 +72,15 @@ keys.addEventListener('click', e => {
             const secondValue = displayedNum;
 
             if (firstValue) {
+                if (previousKeyType === 'calculate') {
+                    firstValue = displayedNum;
+                    secondValue = calculator.dataset.modValue;
+                }
                display.textContent = calculate (firstValue, operator, secondValue); 
             }
-            
+
+            // Set modValue attribute
+            calculator.dataset.modValue = secondValue;
             calculator.dataset.previousKeyType = 'calculate';
         }
         // Remove .is-depressed class from all keys
