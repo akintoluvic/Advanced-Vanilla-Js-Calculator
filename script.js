@@ -24,7 +24,10 @@ keys.addEventListener('click', e => {
                 const operator = calculator.dataset.operator;
                 const secondValue = displayedNum;
 
-                if (firstValue && operator && previousKeyType !== 'operator') {
+                if (firstValue && 
+                    operator && 
+                    previousKeyType !== 'operator'
+                    ) {
                     const calcValue = calculate(firstValue, operator, secondValue);
                     display.textContent = calcValue;
 
@@ -33,11 +36,10 @@ keys.addEventListener('click', e => {
                     // If there are no calculations, set displayedNum as the firstValue
                     calculator.dataset.firstValue = displayedNum;
                 }
-
-            key.classList.add('is-depressed');
+            
             // Add custom attribute
+            key.classList.add('is-depressed');
             calculator.dataset.previousKeyType = 'operator';
-            calculator.dataset.firstValue = displayedNum;
             calculator.dataset.operator = action;
         } else if (action === 'decimal') {
             if (!displayedNum.includes('.')) {
