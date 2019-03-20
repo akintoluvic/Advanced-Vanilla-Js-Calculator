@@ -72,7 +72,11 @@ keys.addEventListener('click', e => {
             
             display.textContent = 0;
             calculator.dataset.previousKeyType = 'clear';
-        }  else if (action === 'calculate') {
+        } else if (action === 'square') {
+                        
+            display.textContent = Math.pow(displayedNum, 2);
+            calculator.dataset.previousKeyType = 'clear';
+        } else if (action === 'calculate') {
             const firstValue = calculator.dataset.firstValue;
             const operator = calculator.dataset.operator;
             const secondValue = displayedNum;
