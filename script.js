@@ -61,14 +61,11 @@ keys.addEventListener('click', e => {
         //     clearButton.textContent = 'CE';
         // } 
         else if (action === 'clear') {
-            if (key.textContent === 'AC') {
-                calculator.dataset.firstValue = '';
-                calculator.dataset.modValue = '';
-                calculator.dataset.operator = '';
-                calculator.dataset.previousKeyType = '';
-            } else {
-                key.textContent = 'AC';
-            }
+            calculator.dataset.firstValue = '';
+            calculator.dataset.modValue = '';
+            calculator.dataset.operator = '';
+            calculator.dataset.previousKeyType = '';
+            
             display.textContent = 0;
             calculator.dataset.previousKeyType = 'clear';
         } else if (action === 'square') {
