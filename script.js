@@ -51,10 +51,12 @@ keys.addEventListener('click', e => {
                 display.textContent = '0.';
             }
             calculator.dataset.previousKeyType = 'decimal';
-        } else if (action !== 'clear') {
-            const clearButton = calculator.querySelector('[data-action=clear]');
-            clearButton.textContent = 'CE';
-        } else if (action === 'clear') {
+        } 
+        // else if (action !== 'clear') {
+        //     const clearButton = calculator.querySelector('[data-action=clear]');
+        //     clearButton.textContent = 'CE';
+        // } 
+        else if (action === 'clear') {
             if (key.textContent === 'AC') {
                 calculator.dataset.firstValue = '';
                 calculator.dataset.modValue = '';
