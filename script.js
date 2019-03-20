@@ -69,12 +69,13 @@ keys.addEventListener('click', e => {
             } else {
                 key.textContent = 'AC';
             }
-            
             display.textContent = 0;
             calculator.dataset.previousKeyType = 'clear';
         } else if (action === 'square') {
-                        
             display.textContent = Math.pow(displayedNum, 2);
+            calculator.dataset.previousKeyType = 'square';
+        } else if (action === 'sq-root') {
+            display.textContent = Math.sqrt(displayedNum);
             calculator.dataset.previousKeyType = 'square';
         } else if (action === 'calculate') {
             const firstValue = calculator.dataset.firstValue;
