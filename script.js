@@ -54,7 +54,7 @@ keys.addEventListener('click', e => {
         } else if (action === 'b-space') {
                         
             display.textContent = parseFloat(displayedNum.toString().slice(0, -1));
-            calculator.dataset.previousKeyType = 'clear';
+            calculator.dataset.previousKeyType = 'b-space';
         }
         // else if (action !== 'clear') {
         //     const clearButton = calculator.querySelector('[data-action=clear]');
