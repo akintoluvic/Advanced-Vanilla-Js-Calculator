@@ -10,7 +10,10 @@ keys.addEventListener('click', e => {
         const displayedNum = display.textContent;
         const previousKeyType = calculator.dataset.previousKeyType;
         if (!action) {
-            if (displayedNum === '0' || previousKeyType === 'operator') {
+            if (displayedNum === '0' || 
+            previousKeyType === 'operator' || 
+            previousKeyType === 'calculate'
+            ) {
                 display.textContent = keyContent;
             } else {
                 display.textContent = displayedNum + keyContent;
