@@ -51,7 +51,11 @@ keys.addEventListener('click', e => {
                 display.textContent = '0.';
             }
             calculator.dataset.previousKeyType = 'decimal';
-        } 
+        } else if (action === 'b-space') {
+                        
+            display.textContent = parseFloat(displayedNum.toString().slice(0, -1));
+            calculator.dataset.previousKeyType = 'clear';
+        }
         // else if (action !== 'clear') {
         //     const clearButton = calculator.querySelector('[data-action=clear]');
         //     clearButton.textContent = 'CE';
